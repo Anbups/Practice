@@ -1,0 +1,11 @@
+Feature: This to Create account and validate the Account creation page on Bestbuy webpage
+
+Scenario Outline: This scenario is to Create new Account in BestBuy application
+Given the user launching the Bestbuy application
+And  the user click Account dropdown then click Create Account button and it will navigate to the Account Creation page
+When the user passing the below parameters and click Create Account button "<First Name>""<Last Name>""<Email Address>""<Password>""<Confirm Password>""<Mobile Phone Number>"
+Then the user should see the successful message.
+
+Examples:
+|First Name|Last Name|Email Address|Password|Confirm Password|Mobile Phone Number|
+|Anbarasan|P|anbuking910@gmail.com|Anbu@123|Anbu@0910$|+91-8220322729|

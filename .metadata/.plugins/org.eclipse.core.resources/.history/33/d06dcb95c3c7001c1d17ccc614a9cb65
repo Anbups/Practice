@@ -1,0 +1,19 @@
+package org.com.practice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class NetflicksPractice {
+	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "C:\\SeleniumLearning\\Selenium\\driver");
+
+		ChromeDriver obj = new ChromeDriver();
+		obj.get("https://www.netflix.com/in/");
+		
+		WebElement signIn = obj.findElement(By.xpath("//a[@class='authLinks redButton']"));
+		signIn.click();
+		
+	}
+
+}

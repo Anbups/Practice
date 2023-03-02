@@ -1,0 +1,24 @@
+package hooks;
+
+import java.io.IOException;
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+
+import driverManager.DriverManager;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+
+public class Hooks {
+	@Before
+	public void beforeScenario() throws IOException {
+		DriverManager.getInstance().launchBrowser();
+		DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		DriverManager.getDriver().manage().window().maximize();
+		
+	}
+@After
+public void afterScenario() {
+//	DriverManager.getDriver().close();
+}
+}

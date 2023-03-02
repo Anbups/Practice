@@ -1,0 +1,21 @@
+package week4.day1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class AlartBox {
+	
+	public static void main(String[] args){
+		WebDriverManager.chromedriver().setup();
+		ChromeDriver obj  = new ChromeDriver();
+		obj.get("https://www.w3schools.com/js/tryit.asp?filename=tryjs_prompt");
+		obj.manage().window().maximize();
+		
+	WebElement tryit = obj.findElement(By.xpath("//button[@onclick='myFunction()']"));
+	tryit.click();
+	}
+
+}

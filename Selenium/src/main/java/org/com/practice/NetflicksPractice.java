@@ -1,0 +1,32 @@
+package org.com.practice;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.server.handler.FindElement;
+
+public class NetflicksPractice {
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", "C:\\SeleniumLearning\\Selenium\\driver\\chromedriver.exe");
+
+		ChromeDriver obj = new ChromeDriver();
+		obj.get("https://www.netflix.com/in/");
+		
+		WebElement signIn = obj.findElement(By.xpath("//a[@class='authLinks redButton']"));
+		signIn.click();
+		WebElement userName = obj.findElement(By.xpath("//input[contains(@id,'id_userLoginId')]"));
+		WebElement passWord = obj.findElement(By.xpath("//input[@name='password']"));
+		userName.sendKeys("sellamuthu9597@gmail.com");
+		passWord.sendKeys("lucifer");
+		
+		WebElement finish = obj.findElement(By.xpath("//button[contains(text(),'Sign In')]"));
+		finish.click();
+		Thread.sleep(3000);		
+		//obj.close();
+		WebElement muthuAcc = obj.findElement(By.xpath("(//div[@class='profile-icon'])[2]"));
+		muthuAcc.click();
+		
+	
+	}
+
+}

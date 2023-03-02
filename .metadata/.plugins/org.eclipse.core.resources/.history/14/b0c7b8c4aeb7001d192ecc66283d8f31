@@ -1,0 +1,43 @@
+package stepDefPackage;
+
+import java.io.IOException;
+
+import driverManager.DriverManager;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import pom.AccountCreationPage;
+import pom.CreateAccountPage;
+import uttility.UttilityClass;
+
+public class StepDefClass {
+	@Given("the user launching the Bestbuy application")
+	public void the_user_launching_the_bestbuy_application() throws IOException {
+		DriverManager.getDriver().get(UttilityClass.getInstance().readPropertyFile("url"));
+		
+	}
+
+	@Given("the user click Account dropdown then click Create Account button and it will navigate to the Account Creation page")
+	public void the_user_click_account_dropdown_then_click_create_account_button_and_it_will_navigate_to_the_account_creation_page() {
+		CreateAccountPage.getInstance().getAccountButton().click();
+		CreateAccountPage.getInstance().getCreateAccountButton().click();
+	}
+
+	@When("the user passing the below parameters and click Create Account button {string}{string}{string}{string}{string}{string}")
+	public void the_user_passing_the_below_parameters_and_click_create_account_button(String string, String string2, String string3, String string4, String string5, String string6) {
+		AccountCreationPage.getInstance().getFirstNameBox().sendKeys(string);
+		AccountCreationPage.getInstance().getLastNameBox().sendKeys(string2);
+		AccountCreationPage.getInstance().getEmailBox().sendKeys(string3);
+		AccountCreationPage.getInstance().getPasswordBox().sendKeys(string4);
+		AccountCreationPage.getInstance().getConfirmPasswordBox().sendKeys(string5);
+		AccountCreationPage.getInstance().getPhoneNumberBox().sendKeys(string6);
+		AccountCreationPage.getInstance().getCreateAnAccountButton().click();
+	}
+
+	@Then("the user should see the successful message.")
+	public void the_user_should_see_the_successful_message() {
+		System.out.println("Success");
+	}
+
+
+}

@@ -1,0 +1,15 @@
+package org.com.practice;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class SelPractice {
+public static void main(String[] args) {
+	
+	System.setProperty("webdriver.chrome.driver", "C:\\SeleniumLearning\\Selenium\\driver\\chromedriver.exe");
+	
+	ChromeDriver obj = new ChromeDriver();
+	obj.get("https://www.linkedin.com/feed/");
+	obj.close();
+	
+}
+}
